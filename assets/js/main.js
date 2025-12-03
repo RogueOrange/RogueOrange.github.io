@@ -1,112 +1,160 @@
-const rotatingWord = document.getElementById('rotating-word');
-const rotatingWords = ['engineering', 'running', 'designing', 'building', 'learning', 'exploring', 'mentoring', 'shipping'];
-let rotatingIndex = 0;
+const words = ['engineering', 'running', 'designing', 'building', 'exploring', 'mentoring', 'learning'];
+let currentWord = 0;
 
-if (rotatingWord) {
-  setInterval(() => {
-    rotatingWord.classList.add('fade-out');
-    setTimeout(() => {
-      rotatingIndex = (rotatingIndex + 1) % rotatingWords.length;
-      rotatingWord.textContent = rotatingWords[rotatingIndex];
-      rotatingWord.classList.remove('fade-out');
-      rotatingWord.classList.add('fade-in');
-      setTimeout(() => rotatingWord.classList.remove('fade-in'), 240);
-    }, 180);
-  }, 2200);
+function rotateWords() {
+  const el = document.getElementById('rotating-word');
+  if (!el) return;
+  currentWord = (currentWord + 1) % words.length;
+  el.classList.remove('fade');
+  void el.offsetWidth;
+  el.textContent = words[currentWord];
+  el.classList.add('fade');
 }
 
-const datasets = [
+setInterval(rotateWords, 1800);
+
+const projects = [
   {
-    name: 'Design system refresh',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    tags: ['lorem', 'ipsum'],
-    geography: 'Lorem ipsum',
-    size: 'Dolor sit',
-    taxa: 'Amet, Elit'
+    title: 'Signal Atlas',
+    subtitle: 'Adaptive dashboards',
+    tags: ['design', 'frontend', 'data'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae ligula vitae purus facilisis feugiat.',
+    status: 'Live',
   },
   {
-    name: 'Analytics workspace',
-    description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames.',
-    tags: ['dolor', 'ipsum'],
-    geography: 'Consectetur',
-    size: 'Adipiscing',
-    taxa: 'Elit, Sed'
+    title: 'Stride',
+    subtitle: 'Performance toolkit',
+    tags: ['frontend', 'ops'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris egestas nunc in facilisis scelerisque.',
+    status: 'Pilot',
   },
   {
-    name: 'Service playbook',
-    description: 'Curabitur convallis lacus in nisl molestie, et viverra dui tempor.',
-    tags: ['amet', 'elit'],
-    geography: 'Lorem ipsum',
-    size: 'Dolor sit',
-    taxa: 'Amet'
+    title: 'Canvas',
+    subtitle: 'Design system refresh',
+    tags: ['design'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel elit ac lorem tempor vehicula.',
+    status: 'Live',
   },
   {
-    name: 'Mobile companion app',
-    description: 'Etiam fringilla lacus id libero dictum mattis a nec magna.',
-    tags: ['ipsum', 'lorem'],
-    geography: 'Consectetur',
-    size: 'Adipiscing',
-    taxa: 'Elit, Sed'
+    title: 'Helix',
+    subtitle: 'Data orchestration',
+    tags: ['data', 'ops'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed justo id sapien tempor placerat.',
+    status: 'Beta',
   },
   {
-    name: 'Research insights hub',
-    description: 'Donec eu sem vulputate, lobortis ipsum in, viverra elit.',
-    tags: ['elit', 'dolor'],
-    geography: 'Lorem ipsum',
-    size: 'Dolor sit',
-    taxa: 'Amet'
+    title: 'Lumen',
+    subtitle: 'Research explorer',
+    tags: ['research', 'design'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at consequat enim, ut luctus nunc.',
+    status: 'Archive',
   },
   {
-    name: 'Automation toolkit',
-    description: 'Praesent porta libero ut interdum pulvinar. Proin lobortis lorem non sapien mattis.',
-    tags: ['amet', 'ipsum'],
-    geography: 'Consectetur',
-    size: 'Adipiscing',
-    taxa: 'Elit'
-  }
+    title: 'Northwind',
+    subtitle: 'Ops command center',
+    tags: ['ops', 'frontend'],
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id porttitor justo, vitae euismod enim.',
+    status: 'Live',
+  },
 ];
 
-const grid = document.getElementById('dataset-grid');
-const searchInput = document.getElementById('dataset-search');
-const chips = Array.from(document.querySelectorAll('#filter-chips .chip'));
+function createProjectCard(project) {
+  const card = document.createElement('article');
+  card.className = 'card soft';
 
-function renderCards(items) {
+  const badge = document.createElement('p');
+  badge.className = 'pill muted';
+  badge.textContent = project.status;
+  card.appendChild(badge);
+
+  const title = document.createElement('h3');
+  title.textContent = project.title;
+  card.appendChild(title);
+
+  const subtitle = document.createElement('p');
+  subtitle.className = 'muted';
+  subtitle.textContent = project.subtitle;
+  card.appendChild(subtitle);
+
+  const desc = document.createElement('p');
+  desc.textContent = project.description;
+  card.appendChild(desc);
+
+  const tagRow = document.createElement('div');
+  tagRow.className = 'tags';
+  project.tags.forEach((tag) => {
+    const t = document.createElement('span');
+    t.className = 'chip';
+    t.textContent = tag;
+    tagRow.appendChild(t);
+  });
+  card.appendChild(tagRow);
+
+  return card;
+}
+
+function renderProjects(filterTag = 'all', query = '') {
+  const grid = document.getElementById('project-grid');
+  if (!grid) return;
   grid.innerHTML = '';
-  items.forEach((item) => {
-    const card = document.createElement('article');
-    card.className = 'dataset-card';
-    card.innerHTML = `
-      <div class="pill pill-neutral">${item.geography}</div>
-      <h3>${item.name}</h3>
-      <p>${item.description}</p>
-      <div class="tags">${item.tags.map((tag) => `<span class="chip mini">${tag}</span>`).join('')}</div>
-      <div class="dataset-footer">
-        <span>${item.size}</span>
-        <span>${item.taxa}</span>
-      </div>
-    `;
-    grid.appendChild(card);
+
+  const normalizedQuery = query.trim().toLowerCase();
+
+  projects
+    .filter((project) => {
+      const matchesTag = filterTag === 'all' || project.tags.includes(filterTag);
+      const matchesQuery =
+        !normalizedQuery ||
+        project.title.toLowerCase().includes(normalizedQuery) ||
+        project.subtitle.toLowerCase().includes(normalizedQuery);
+      return matchesTag && matchesQuery;
+    })
+    .forEach((project) => grid.appendChild(createProjectCard(project)));
+}
+
+function setupFilters() {
+  const filterContainer = document.getElementById('project-filters');
+  const searchInput = document.getElementById('project-search');
+  if (!filterContainer || !searchInput) return;
+
+  let activeTag = 'all';
+  let query = '';
+
+  filterContainer.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (!target.dataset.tag) return;
+
+    activeTag = target.dataset.tag;
+    filterContainer.querySelectorAll('.chip').forEach((chip) => chip.classList.remove('active'));
+    target.classList.add('active');
+    renderProjects(activeTag, query);
+  });
+
+  searchInput.addEventListener('input', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    query = target.value;
+    renderProjects(activeTag, query);
+  });
+
+  renderProjects(activeTag, query);
+}
+
+function setupSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      event.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
 }
 
-function filterDatasets() {
-  const term = searchInput.value.toLowerCase();
-  const activeTags = chips.filter((c) => c.classList.contains('selected')).map((c) => c.dataset.tag);
-  const filtered = datasets.filter((item) => {
-    const matchesTerm = item.name.toLowerCase().includes(term) || item.description.toLowerCase().includes(term);
-    const matchesTags = activeTags.length === 0 || activeTags.every((tag) => item.tags.includes(tag));
-    return matchesTerm && matchesTags;
-  });
-  renderCards(filtered);
-}
-
-chips.forEach((chip) => {
-  chip.addEventListener('click', () => {
-    chip.classList.toggle('selected');
-    filterDatasets();
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  setupFilters();
+  setupSmoothScroll();
 });
-
-searchInput.addEventListener('input', filterDatasets);
-
-renderCards(datasets);

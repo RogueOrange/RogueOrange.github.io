@@ -1,51 +1,68 @@
+const rotatingWord = document.getElementById('rotating-word');
+const rotatingWords = ['engineering', 'running', 'designing', 'building', 'learning', 'exploring', 'mentoring', 'shipping'];
+let rotatingIndex = 0;
+
+if (rotatingWord) {
+  setInterval(() => {
+    rotatingWord.classList.add('fade-out');
+    setTimeout(() => {
+      rotatingIndex = (rotatingIndex + 1) % rotatingWords.length;
+      rotatingWord.textContent = rotatingWords[rotatingIndex];
+      rotatingWord.classList.remove('fade-out');
+      rotatingWord.classList.add('fade-in');
+      setTimeout(() => rotatingWord.classList.remove('fade-in'), 240);
+    }, 180);
+  }, 2200);
+}
+
 const datasets = [
   {
-    name: 'Urban gut microbiome atlas',
-    description: '1,800 human stool samples across 12 cities with dietary metadata.',
-    tags: ['human', 'clinical'],
-    geography: 'Global',
-    size: '480 GB',
-    taxa: '420 taxa'
+    name: 'Design system refresh',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    tags: ['lorem', 'ipsum'],
+    geography: 'Lorem ipsum',
+    size: 'Dolor sit',
+    taxa: 'Amet, Elit'
   },
   {
-    name: 'Soil carbon cycling panel',
-    description: 'Seasonal metagenomes from regenerative agriculture plots.',
-    tags: ['soil'],
-    geography: 'Iowa, USA',
-    size: '260 GB',
-    taxa: '310 taxa'
+    name: 'Analytics workspace',
+    description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames.',
+    tags: ['dolor', 'ipsum'],
+    geography: 'Consectetur',
+    size: 'Adipiscing',
+    taxa: 'Elit, Sed'
   },
   {
-    name: 'Coastal water quality survey',
-    description: 'Weekly metatranscriptomes for Vibrio tracking in harbors.',
-    tags: ['marine'],
-    geography: 'Bay of Biscay',
-    size: '120 GB',
-    taxa: '188 taxa'
+    name: 'Service playbook',
+    description: 'Curabitur convallis lacus in nisl molestie, et viverra dui tempor.',
+    tags: ['amet', 'elit'],
+    geography: 'Lorem ipsum',
+    size: 'Dolor sit',
+    taxa: 'Amet'
   },
   {
-    name: 'Gnotobiotic mouse reference',
-    description: 'Defined consortia runs for benchmarking host-microbe interactions.',
-    tags: ['model', 'human'],
-    geography: 'Controlled vivarium',
-    size: '95 GB',
-    taxa: '42 taxa'
+    name: 'Mobile companion app',
+    description: 'Etiam fringilla lacus id libero dictum mattis a nec magna.',
+    tags: ['ipsum', 'lorem'],
+    geography: 'Consectetur',
+    size: 'Adipiscing',
+    taxa: 'Elit, Sed'
   },
   {
-    name: 'ICU resistome watchlist',
-    description: 'Hospital surveillance with weekly AMR updates and phenotype links.',
-    tags: ['clinical', 'human'],
-    geography: '11 hospitals',
-    size: '320 GB',
-    taxa: '150 markers'
+    name: 'Research insights hub',
+    description: 'Donec eu sem vulputate, lobortis ipsum in, viverra elit.',
+    tags: ['elit', 'dolor'],
+    geography: 'Lorem ipsum',
+    size: 'Dolor sit',
+    taxa: 'Amet'
   },
   {
-    name: 'High-altitude peat bogs',
-    description: 'Archaea-rich profiles from oxygen-poor wetland cores.',
-    tags: ['soil', 'marine'],
-    geography: 'Patagonia',
-    size: '210 GB',
-    taxa: '260 taxa'
+    name: 'Automation toolkit',
+    description: 'Praesent porta libero ut interdum pulvinar. Proin lobortis lorem non sapien mattis.',
+    tags: ['amet', 'ipsum'],
+    geography: 'Consectetur',
+    size: 'Adipiscing',
+    taxa: 'Elit'
   }
 ];
 

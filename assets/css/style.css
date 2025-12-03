@@ -32,22 +32,25 @@ a {
 
 .intro {
   min-height: 100vh;
+  height: 100vh;
   display: grid;
   place-items: center;
   text-align: center;
   background: radial-gradient(circle at 20% 20%, rgba(255, 138, 61, 0.08), transparent 35%),
     radial-gradient(circle at 80% 30%, rgba(255, 138, 61, 0.06), transparent 30%),
-    linear-gradient(180deg, #06070a 0%, #06070a 60%, rgba(5, 6, 8, 0));
+    linear-gradient(180deg, #06070a 0%, #06070a 55%, rgba(5, 6, 8, 0));
   position: relative;
   overflow: hidden;
-  padding: 80px 16px;
+  padding: 140px 16px 150px;
+  isolation: isolate;
+  z-index: 2;
 }
 
 .intro::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, #050608 100%);
+  background: linear-gradient(180deg, transparent 68%, #050608 100%);
   pointer-events: none;
 }
 
@@ -129,7 +132,21 @@ a {
 }
 
 .shell {
-  background: linear-gradient(180deg, rgba(5, 6, 8, 0) 0%, #050608 20%);
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(5, 6, 8, 0.05) 0%, #050608 18%);
+}
+
+.shell::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(180deg, #050608 0%, rgba(5, 6, 8, 0.85) 35%, rgba(5, 6, 8, 0));
+  pointer-events: none;
+  z-index: 0;
 }
 
 .topbar {

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gareth Coward | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">GC</div>
+      <div>
+        <div class="brand-title">Gareth Coward</div>
+        <div class="brand-subtitle">Designing thoughtful digital experiences</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#catalog">Projects</a>
+      <a href="#insights">Highlights</a>
+      <a href="#workflow">Process</a>
+      <a href="#resources">Resources</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn ghost">Resume</button>
+      <button class="btn primary">Contact</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Product designer & builder</p>
+        <h1>Crafting cohesive journeys with detail, intent, and a love for elegant systems.</h1>
+        <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <div class="hero-actions">
+          <button class="btn primary">View projects</button>
+          <button class="btn secondary">Say hello</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">24</div>
+            <div class="stat-label">Projects shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Years building</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Design systems</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="panel-head">Project preview</div>
+        <div class="panel-body">
+          <div class="input-group">
+            <label for="hero-search">Search the work</label>
+            <input id="hero-search" type="text" placeholder="e.g. design system" />
+          </div>
+          <div class="filters-inline">
+            <span class="chip selected">Design</span>
+            <span class="chip">Frontend</span>
+            <span class="chip">Research</span>
+            <span class="chip">Ops</span>
+          </div>
+          <div class="preview-card">
+            <div class="preview-header">
+              <div>
+                <p class="eyebrow">Featured work</p>
+                <h3>Design system refresh</h3>
+              </div>
+              <span class="pill pill-positive">Live</span>
+            </div>
+            <p class="preview-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum posuere, ipsum sed ultricies varius, sapien ligula convallis libero.</p>
+            <div class="sparkline">
+              <div class="bar" style="height: 64%"></div>
+              <div class="bar" style="height: 82%"></div>
+              <div class="bar" style="height: 48%"></div>
+              <div class="bar" style="height: 90%"></div>
+              <div class="bar" style="height: 70%"></div>
+              <div class="bar" style="height: 52%"></div>
+              <div class="bar" style="height: 68%"></div>
+            </div>
+            <div class="preview-meta">
+              <div>
+                <div class="meta-label">Sprints</div>
+                <div class="meta-value">6</div>
+              </div>
+              <div>
+                <div class="meta-label">Platforms</div>
+                <div class="meta-value">Web & Mobile</div>
+              </div>
+              <div>
+                <div class="meta-label">Stack</div>
+                <div class="meta-value">Figma, React</div>
+              </div>
+            </div>
+            <button class="btn ghost block">View details</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog" class="catalog">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Projects</p>
+          <h2>Selected work</h2>
+          <p class="section-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed vitae varius velit, in volutpat ipsum.</p>
+        </div>
+        <div class="catalog-controls">
+          <div class="search-box">
+            <input id="dataset-search" type="search" placeholder="Search projects by name or tag" />
+            <span class="icon">⌕</span>
+          </div>
+          <div class="filter-chips" id="filter-chips">
+            <button class="chip" data-tag="design">Design</button>
+            <button class="chip" data-tag="frontend">Frontend</button>
+            <button class="chip" data-tag="data">Data</button>
+            <button class="chip" data-tag="ops">Ops</button>
+            <button class="chip" data-tag="research">Research</button>
+          </div>
+        </div>
+      </div>
+      <div class="dataset-grid" id="dataset-grid">
+        <!-- Cards injected via JS -->
+      </div>
+    </section>
+
+    <section id="insights" class="insights">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Highlights</p>
+          <h2>Notes behind the screens</h2>
+          <p class="section-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mollis vestibulum sem, at tristique mi rutrum nec.</p>
+        </div>
+        <button class="btn ghost">Download folio</button>
+      </div>
+      <div class="insight-grid">
+        <article class="insight-card">
+          <div class="pill pill-positive">Design</div>
+          <h3>Lorem ipsum dolor sit amet</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non cursus eros. Integer id pulvinar velit, vitae semper turpis.</p>
+          <div class="tags">
+            <span class="chip mini">UI</span>
+            <span class="chip mini">Systems</span>
+            <span class="chip mini">Prototyping</span>
+          </div>
+          <div class="metric-row">
+            <div>
+              <div class="meta-label">Impact</div>
+              <div class="meta-value">2x adoption</div>
+            </div>
+            <div>
+              <div class="meta-label">Timeline</div>
+              <div class="meta-value">6 weeks</div>
+            </div>
+            <div>
+              <div class="meta-label">Role</div>
+              <div class="meta-value">Lead</div>
+            </div>
+          </div>
+        </article>
+        <article class="insight-card">
+          <div class="pill pill-neutral">Frontend</div>
+          <h3>Consectetur adipiscing elit</h3>
+          <p>Curabitur convallis lacus in nisl molestie, et viverra dui tempor. Donec eu sem vulputate, lobortis ipsum in, viverra elit.</p>
+          <div class="tags">
+            <span class="chip mini">React</span>
+            <span class="chip mini">Animations</span>
+            <span class="chip mini">Accessibility</span>
+          </div>
+          <div class="metric-row">
+            <div>
+              <div class="meta-label">Launch</div>
+              <div class="meta-value">2024</div>
+            </div>
+            <div>
+              <div class="meta-label">Team</div>
+              <div class="meta-value">4</div>
+            </div>
+            <div>
+              <div class="meta-label">Stack</div>
+              <div class="meta-value">Next.js</div>
+            </div>
+          </div>
+        </article>
+        <article class="insight-card">
+          <div class="pill pill-positive">Ops</div>
+          <h3>Sed do eiusmod tempor incididunt</h3>
+          <p>Praesent porta libero ut interdum pulvinar. Proin lobortis lorem non sapien mattis, eget tincidunt sem cursus.</p>
+          <div class="tags">
+            <span class="chip mini">Delivery</span>
+            <span class="chip mini">Automation</span>
+            <span class="chip mini">Playbooks</span>
+          </div>
+          <div class="metric-row">
+            <div>
+              <div class="meta-label">Cycles</div>
+              <div class="meta-value">5</div>
+            </div>
+            <div>
+              <div class="meta-label">Teams</div>
+              <div class="meta-value">3</div>
+            </div>
+            <div>
+              <div class="meta-label">Outcome</div>
+              <div class="meta-value">Smooth handoffs</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Process</p>
+          <h2>How the work comes together</h2>
+          <p class="section-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a arcu nec nisl posuere consectetur a in felis.</p>
+        </div>
+        <button class="btn primary">Explore process</button>
+      </div>
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="step-index">1</div>
+          <div>
+            <h3>Discover & align</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae dignissim arcu, eu malesuada augue.</p>
+            <div class="mini-badges">
+              <span class="chip mini">Workshops</span>
+              <span class="chip mini">Goals</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-index">2</div>
+          <div>
+            <h3>Shape & prototype</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fringilla lacus id libero dictum mattis.</p>
+            <div class="mini-badges">
+              <span class="chip mini">Figma</span>
+              <span class="chip mini">Flows</span>
+              <span class="chip mini">Interactive</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-index">3</div>
+          <div>
+            <h3>Build & iterate</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus felis a magna vulputate, vitae egestas mi malesuada.</p>
+            <div class="mini-badges">
+              <span class="chip mini">Code</span>
+              <span class="chip mini">Reviews</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="step-index">4</div>
+          <div>
+            <h3>Launch & support</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus et tortor accumsan, suscipit lorem id, ultricies odio.</p>
+            <div class="mini-badges">
+              <span class="chip mini">Playbooks</span>
+              <span class="chip mini">QA</span>
+              <span class="chip mini">Metrics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="resources">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Resources</p>
+          <h2>Tools & notes</h2>
+          <p class="section-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ullamcorper augue id ligula egestas sagittis.</p>
+        </div>
+        <div class="cta-stack">
+          <button class="btn secondary">View notebooks</button>
+          <button class="btn ghost">Book time</button>
+        </div>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <div class="icon-circle">⇵</div>
+          <h3>Design kits</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel ante orci.</p>
+        </article>
+        <article class="resource-card">
+          <div class="icon-circle">⚡</div>
+          <h3>Code snippets</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique lacus non leo finibus tempor.</p>
+        </article>
+        <article class="resource-card">
+          <div class="icon-circle">🛰️</div>
+          <h3>Playbooks</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium felis at metus vehicula, et semper orci tempus.</p>
+        </article>
+        <article class="resource-card">
+          <div class="icon-circle">🧬</div>
+          <h3>Research notes</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat nisl vel augue finibus, vitae varius libero efficitur.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <div class="brand-mark">GC</div>
+      <div>
+        <div class="brand-title">Gareth Coward</div>
+        <p class="footnote">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#">About</a>
+      <a href="#">Projects</a>
+      <a href="#">Notes</a>
+      <a href="#">Contact</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

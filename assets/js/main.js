@@ -1,51 +1,51 @@
 const datasets = [
   {
-    name: 'Design system refresh',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    tags: ['design', 'frontend'],
-    geography: 'Product',
-    size: 'Design ops',
-    taxa: 'Figma, React'
+    name: 'Urban gut microbiome atlas',
+    description: '1,800 human stool samples across 12 cities with dietary metadata.',
+    tags: ['human', 'clinical'],
+    geography: 'Global',
+    size: '480 GB',
+    taxa: '420 taxa'
   },
   {
-    name: 'Analytics workspace',
-    description: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames.',
-    tags: ['data', 'frontend'],
-    geography: 'Platform',
-    size: 'Dashboards',
-    taxa: 'Next.js, D3'
+    name: 'Soil carbon cycling panel',
+    description: 'Seasonal metagenomes from regenerative agriculture plots.',
+    tags: ['soil'],
+    geography: 'Iowa, USA',
+    size: '260 GB',
+    taxa: '310 taxa'
   },
   {
-    name: 'Service playbook',
-    description: 'Curabitur convallis lacus in nisl molestie, et viverra dui tempor.',
-    tags: ['ops', 'research'],
-    geography: 'Delivery',
-    size: 'Guides',
-    taxa: 'Templates'
+    name: 'Coastal water quality survey',
+    description: 'Weekly metatranscriptomes for Vibrio tracking in harbors.',
+    tags: ['marine'],
+    geography: 'Bay of Biscay',
+    size: '120 GB',
+    taxa: '188 taxa'
   },
   {
-    name: 'Mobile companion app',
-    description: 'Etiam fringilla lacus id libero dictum mattis a nec magna.',
-    tags: ['frontend', 'design'],
-    geography: 'iOS & Android',
-    size: 'Interfaces',
-    taxa: 'SwiftUI, React Native'
+    name: 'Gnotobiotic mouse reference',
+    description: 'Defined consortia runs for benchmarking host-microbe interactions.',
+    tags: ['model', 'human'],
+    geography: 'Controlled vivarium',
+    size: '95 GB',
+    taxa: '42 taxa'
   },
   {
-    name: 'Research insights hub',
-    description: 'Donec eu sem vulputate, lobortis ipsum in, viverra elit.',
-    tags: ['research', 'data'],
-    geography: 'Knowledge',
-    size: 'Repository',
-    taxa: 'Playbooks'
+    name: 'ICU resistome watchlist',
+    description: 'Hospital surveillance with weekly AMR updates and phenotype links.',
+    tags: ['clinical', 'human'],
+    geography: '11 hospitals',
+    size: '320 GB',
+    taxa: '150 markers'
   },
   {
-    name: 'Automation toolkit',
-    description: 'Praesent porta libero ut interdum pulvinar. Proin lobortis lorem non sapien mattis.',
-    tags: ['ops', 'frontend'],
-    geography: 'Internal',
-    size: 'Automation',
-    taxa: 'CI/CD'
+    name: 'High-altitude peat bogs',
+    description: 'Archaea-rich profiles from oxygen-poor wetland cores.',
+    tags: ['soil', 'marine'],
+    geography: 'Patagonia',
+    size: '210 GB',
+    taxa: '260 taxa'
   }
 ];
 

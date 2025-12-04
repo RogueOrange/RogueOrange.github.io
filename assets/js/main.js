@@ -1,4 +1,4 @@
-const words = ['engineering', 'running', 'designing', 'building', 'exploring', 'mentoring', 'learning', 'tinkering'];
+const words = ['engineering', 'CAD','CAM','constuction', 'designing', 'building', 'exploring','learning'];
 let currentWord = 0;
 
 function rotateWords() {

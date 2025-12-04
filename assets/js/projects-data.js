@@ -39,9 +39,9 @@ const projects = [
       summary:
         'Placeholder narrative outlining the strip-down, cataloging, and careful rebuild of the American-spec GTV 2000 while preserving its soul.',
       paragraphs: [
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum tempor nunc, sed fermentum nisl fringilla eget. Cras a cursus arcu, vitae convallis lacus. Sed scelerisque sem nec magna finibus, at ultrices ipsum laoreet.',
-        'Suspendisse at lectus at nibh posuere volutpat. Morbi sed augue purus. Curabitur ac erat et mauris eleifend imperdiet vitae sit amet odio. Mauris id lobortis sem. Pellentesque porttitor justo a ultricies mattis.',
-        'Ut dictum justo at metus pellentesque, a blandit erat interdum. Maecenas dictum purus sed urna dignissim, vitae pellentesque risus viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.',
+        'Placeholder paragraph describing the tear-down and documentation process so future readers understand the baseline condition.',
+        'Placeholder paragraph covering the rebuild choices—what was restored to factory spec versus modernised for reliability.',
+        'Placeholder paragraph reflecting on lessons learned, next steps, or what you would change in a future iteration.',
       ],
     },
     milestones: [

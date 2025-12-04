@@ -1,18 +1,18 @@
 const projects = [
   {
-    title: 'Alfa GTV 2000 Restoration',
+    title: 'Alfa Romeo GTV 2000 Restoration',
     slug: 'alfa-gtv-2000-restoration',
-    subtitle: 'Reviving a 1972 heritage coupé',
+    subtitle: 'Reviving a 1974 American Version coupé',
     tags: ['cad', 'electrical', 'mechanical', 'automotive'],
     description:
-      'A ground-up refresh of a classic Alfa Romeo GTV 2000 with modern drivability, bespoke CAD components, and refined electrics.',
+      'A ground-up refresh of a 1974 Alfa Romeo GTV 2000 (American Version) with modern drivability, bespoke CAD components, and refined electrics.',
     status: 'In progress',
     hasPage: true,
     spotlight: ['Full chassis teardown and CAD-based reassembly', 'Electrical loom redesign with modern protection', 'Mechanical upgrades tuned for road feel'],
     overview:
-      'Breathing new life into a vintage Alfa GTV 2000 by blending original character with reliable modern systems. From CAD-modeled brackets to a refreshed wiring harness, every touchpoint is mapped for longevity and feel.',
+      'Breathing new life into a vintage Alfa Romeo GTV 2000 by blending original character with reliable modern systems. From CAD-modeled brackets to a refreshed wiring harness, every touchpoint is mapped for longevity and feel.',
     outcomes: [
-      'Digitally captured key mounts and body tolerances to fabricate unobtainable parts.',
+      'Documented the 1974 US-spec details to reproduce unavailable trim and brackets.',
       'Rebuilt the electrical architecture with labeled harnesses, fused sub-panels, and modern relays.',
       'Balanced ride and steering feel with suspension and brake updates that honor the car’s original dynamics.',
     ],
@@ -33,6 +33,22 @@ const projects = [
         phase: 'Mechanical Tune',
         detail: 'Refreshed steering, brakes, and suspension with period-respectful upgrades and alignment.',
       },
+    ],
+    story: {
+      heading: 'Restoration story',
+      summary:
+        'Placeholder narrative outlining the strip-down, cataloging, and careful rebuild of the American-spec GTV 2000 while preserving its soul.',
+      paragraphs: [
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum tempor nunc, sed fermentum nisl fringilla eget. Cras a cursus arcu, vitae convallis lacus. Sed scelerisque sem nec magna finibus, at ultrices ipsum laoreet.',
+        'Suspendisse at lectus at nibh posuere volutpat. Morbi sed augue purus. Curabitur ac erat et mauris eleifend imperdiet vitae sit amet odio. Mauris id lobortis sem. Pellentesque porttitor justo a ultricies mattis.',
+        'Ut dictum justo at metus pellentesque, a blandit erat interdum. Maecenas dictum purus sed urna dignissim, vitae pellentesque risus viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.',
+      ],
+    },
+    milestones: [
+      { label: 'Hero', target: '#project-hero' },
+      { label: 'Overview', target: '#project-overview' },
+      { label: 'Story', target: '#project-story' },
+      { label: 'Timeline', target: '#project-timeline' },
     ],
   },
   {

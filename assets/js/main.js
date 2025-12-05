@@ -35,6 +35,14 @@ function createProjectCard(project) {
   desc.textContent = project.description;
   card.appendChild(desc);
 
+  if (project.image) {
+    const image = document.createElement('img');
+    image.src = project.image;
+    image.alt = project.imageAlt || `${project.title} preview image`;
+    image.className = 'card-image';
+    card.appendChild(image);
+  }
+
   const tagRow = document.createElement('div');
   tagRow.className = 'tags';
   if (project.slug === 'alfa-gtv-2000-restoration') {
@@ -49,10 +57,6 @@ function createProjectCard(project) {
 
   const cardFoot = document.createElement('div');
   cardFoot.className = 'card-foot';
-  if (project.image) {
-    cardFoot.classList.add('with-image');
-    cardFoot.style.setProperty('--card-image', `url(${project.image})`);
-  }
   cardFoot.appendChild(tagRow);
 
   if (project.hasPage) {

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Examples Formatting · Gareth Coward</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;800&family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Pacifico&family=Fira+Code:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .examples-hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      align-items: center;
+      padding: 32px 24px 0;
+    }
+
+    .examples-hero .hero-copy {
+      padding: 0;
+    }
+
+    .font-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .font-card {
+      padding: 18px;
+      border-radius: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .sample-playfair { font-family: 'Playfair Display', serif; letter-spacing: 0.5px; }
+    .sample-bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 1.5px; text-transform: uppercase; }
+    .sample-space { font-family: 'Space Mono', monospace; }
+    .sample-pacifico { font-family: 'Pacifico', cursive; }
+    .sample-fira { font-family: 'Fira Code', monospace; }
+
+    .stroke-text {
+      -webkit-text-stroke: 1px #ff8a3d;
+      color: transparent;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ff8a3d, #ff5e2d, #ffb347);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .block-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .block-row .card h3 {
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">GC</div>
+      <div class="brand-text">
+        <div class="brand-name">Gareth Coward</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="projects.html">Catalog</a>
+      <a href="about.html">About page</a>
+      <a href="examples-formatting.html">Examples</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="nav-dropdown">
+        <button class="drawer-trigger" aria-expanded="false" aria-controls="header-drawer">Menu ▾</button>
+        <div class="drawer-menu" id="header-drawer">
+          <a href="index.html#home">Home</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="projects.html">Catalog</a>
+          <a href="about.html">About page</a>
+          <a href="examples-formatting.html">Examples formatting</a>
+        </div>
+      </div>
+      <button class="menu-toggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="nav-drawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <p class="eyebrow">Navigate</p>
+        <button class="drawer-close" aria-label="Close navigation">×</button>
+      </div>
+      <div class="drawer-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="projects.html">Catalog</a>
+        <a href="about.html">About page</a>
+        <a href="examples-formatting.html">Examples formatting</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-wrap">
+    <section class="examples-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Style tests</p>
+        <h1>Examples Formatting</h1>
+        <p class="lede">A playground for trying typography, colors, and textures before moving them into the main site. Swap any sample with your real copy when you are ready.</p>
+      </div>
+      <div class="hero-panel">
+        <div class="panel-title">Quick ideas</div>
+        <div class="panel-grid">
+          <div class="panel-card">
+            <p class="panel-copy gradient-text">Gradient hero words</p>
+          </div>
+          <div class="panel-card">
+            <p class="panel-copy stroke-text">Outlined headings</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Fonts</p>
+          <h2>Mix and match</h2>
+          <p class="section-lede">Pair display fonts with body-friendly companions. Use these as inspiration for headlines, badges, or pull quotes.</p>
+        </div>
+      </div>
+      <div class="font-grid">
+        <div class="font-card sample-playfair">
+          <p class="eyebrow">Playfair Display</p>
+          <h3 class="gradient-text">Workshop Diaries</h3>
+          <p>Great for editorial intros and section headers.</p>
+        </div>
+        <div class="font-card sample-bebas">
+          <p class="eyebrow">Bebas Neue</p>
+          <h3 class="stroke-text">Punchy Labels</h3>
+          <p>Use for badges, stat blocks, or bold navigation.</p>
+        </div>
+        <div class="font-card sample-space">
+          <p class="eyebrow">Space Mono</p>
+          <h3>Technical Notes</h3>
+          <p>Ideal for specs, timelines, or callouts.</p>
+        </div>
+        <div class="font-card sample-pacifico">
+          <p class="eyebrow">Pacifico</p>
+          <h3>Handcrafted</h3>
+          <p>Drop into friendly CTAs or personal asides.</p>
+        </div>
+        <div class="font-card sample-fira">
+          <p class="eyebrow">Fira Code</p>
+          <h3>&lt;code ready /&gt;</h3>
+          <p>Use for snippets, labels, or data readouts.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bordered">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Words</p>
+          <h2>Reusable snippets</h2>
+          <p class="section-lede">Copy fragments you can drop into other pages while drafting: headlines, accents, and quiet detail text.</p>
+        </div>
+      </div>
+      <div class="block-row">
+        <article class="card soft">
+          <h3 class="gradient-text">Craft in the open</h3>
+          <p>Invite readers into the process: sketches, teardown photos, and iteration notes.</p>
+        </article>
+        <article class="card soft">
+          <h3 class="stroke-text">Signal before noise</h3>
+          <p>Lead with the insight or decision first, then the supporting detail.</p>
+        </article>
+        <article class="card soft">
+          <h3 class="sample-space">Build, test, document</h3>
+          <p>Use for checklists or operating procedures you want to spotlight.</p>
+        </article>
+        <article class="card soft">
+          <h3 class="sample-playfair">Small batch, high intent</h3>
+          <p>Tagline for limited-run builds, prototypes, or workshops.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="brand">
+      <div class="brand-mark">GC</div>
+      <div class="brand-text">
+        <div class="brand-name">Gareth Coward</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="examples-formatting.html">Examples</a>
+    </div>
+    <p class="footnote">© 2024 Gareth Coward. Use this page to test ideas before moving them live.</p>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -205,6 +205,50 @@ a {
   align-items: center;
 }
 
+.nav-dropdown {
+  position: relative;
+}
+
+.drawer-trigger {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.drawer-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  padding: 10px;
+  display: none;
+  min-width: 200px;
+  z-index: 15;
+}
+
+.drawer-menu a {
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--muted);
+}
+
+.drawer-menu a:hover {
+  background: var(--panel-soft);
+  color: #fff;
+}
+
+.nav-dropdown.open .drawer-menu {
+  display: block;
+}
+
 .menu-toggle {
   width: 42px;
   height: 42px;
@@ -800,6 +844,14 @@ main {
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
+  }
+
+  .milestone-rail {
+    display: none;
+  }
+
+  .project-media {
+    grid-template-columns: 1fr;
   }
 
   .milestone-rail {

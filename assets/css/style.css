@@ -157,11 +157,11 @@ a {
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 18px 32px;
-  background: rgba(5, 6, 8, 0.9);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  justify-content: flex-end;
+  padding: 12px 20px;
+  background: rgba(5, 6, 8, 0.55);
+  backdrop-filter: blur(8px);
+  border-bottom: none;
 }
 
 .brand {
@@ -842,7 +842,7 @@ main {
   .topbar {
     position: sticky;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 10px;
   }
 
@@ -865,7 +865,7 @@ main {
 
 @media (max-width: 640px) {
   .topbar {
-    padding: 14px 18px;
+    padding: 10px 16px;
   }
 
   main {

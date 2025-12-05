@@ -279,7 +279,83 @@ function initNotesPage() {
   setupNotesExplorer({ filterContainer: filters, searchInput: search, grid });
 }
 
+function createFloatingNav() {
+  if (!document.body) return;
+
+  const navLinks = [
+    { label: 'Home', href: 'index.html#home' },
+    { label: 'About', href: 'about.html' },
+    { label: 'Projects', href: 'projects.html' },
+    { label: 'Notes', href: 'notes.html' },
+    { label: 'Contact', href: 'index.html#contact' },
+    { label: 'Examples', href: 'examples-formatting.html' },
+  ];
+
+  const nav = document.createElement('nav');
+  nav.className = 'floating-nav';
+  nav.setAttribute('aria-label', 'Primary navigation');
+
+  const menuMarkup = navLinks
+    .map(
+      (link, index) => `
+        <a class="mobile-menu-links-wrap" href="${link.href}" role="menuitem">
+          <span class="mobile-menu-text">${link.label}</span>
+          <span class="mobile-menu-nr">${String(index + 1).padStart(2, '0')}</span>
+        </a>`
+    )
+    .join('');
+
+  nav.innerHTML = `
+    <button class="navbar_trigger" type="button" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar_trigger-line is-1"></span>
+      <span class="navbar_trigger-line is-2"></span>
+      <span class="navbar_trigger-line is-3"></span>
+    </button>
+    <div class="floating-nav-menu" role="menu">
+      <div class="floating-nav-label">Navigate</div>
+      <div class="grid-nav-menu-wrap">${menuMarkup}</div>
+      <div class="mobile-menu-divider-line"></div>
+      <div class="accordion_component">
+        <div class="accordion_top">
+          <span class="accordion-headline muted">Quick jump</span>
+          <span class="accordion_icon" aria-hidden="true">↘</span>
+        </div>
+        <div class="accordion_bottom language-wrap">
+          <span class="accordion-headline">Smooth scroll enabled</span>
+          <span class="accordion-headline muted">Links glide to their section when available.</span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(nav);
+
+  const trigger = nav.querySelector('.navbar_trigger');
+  const menuLinks = nav.querySelectorAll('.mobile-menu-links-wrap');
+
+  const toggleOpen = (force) => {
+    const shouldOpen = typeof force === 'boolean' ? force : !nav.classList.contains('open');
+    nav.classList.toggle('open', shouldOpen);
+    if (trigger) trigger.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+  };
+
+  trigger?.addEventListener('click', () => toggleOpen());
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => toggleOpen(false));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!nav.contains(event.target)) toggleOpen(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') toggleOpen(false);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  createFloatingNav();
   initIndexProjects();
   initProjectsPage();
   initIndexNotes();

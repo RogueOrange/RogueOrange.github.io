@@ -578,6 +578,30 @@ main {
   margin-top: 0;
 }
 
+.card-foot .tags.tag-bg-alfa {
+  position: relative;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: linear-gradient(155deg, rgba(5, 6, 8, 0.88), rgba(5, 6, 8, 0.78));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.card-foot .tags.tag-bg-alfa::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: url('../images/alfa-gtv-2000.png') center / cover no-repeat;
+  opacity: 0.2;
+  filter: saturate(0.85) brightness(0.7);
+  z-index: 0;
+}
+
+.card-foot .tags.tag-bg-alfa .chip {
+  position: relative;
+  z-index: 1;
+}
+
 .card-foot .card-links {
   margin-top: 4px;
 }

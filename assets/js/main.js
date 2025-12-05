@@ -311,7 +311,7 @@ function createFloatingNav() {
       <span class="navbar_trigger-line is-2"></span>
       <span class="navbar_trigger-line is-3"></span>
     </button>
-    <div class="floating-nav-menu" role="menu">
+    <div class="floating-nav-menu" role="menu" aria-hidden="true">
       <div class="floating-nav-label">Navigate</div>
       <div class="grid-nav-menu-wrap">${menuMarkup}</div>
       <div class="mobile-menu-divider-line"></div>
@@ -328,15 +328,24 @@ function createFloatingNav() {
     </div>
   `;
 
+  const backdrop = document.createElement('div');
+  backdrop.className = 'floating-nav-backdrop';
+  backdrop.setAttribute('aria-hidden', 'true');
+
   document.body.appendChild(nav);
+  document.body.appendChild(backdrop);
 
   const trigger = nav.querySelector('.navbar_trigger');
   const menuLinks = nav.querySelectorAll('.mobile-menu-links-wrap');
+  const navMenu = nav.querySelector('.floating-nav-menu');
 
   const toggleOpen = (force) => {
     const shouldOpen = typeof force === 'boolean' ? force : !nav.classList.contains('open');
     nav.classList.toggle('open', shouldOpen);
+    backdrop.classList.toggle('visible', shouldOpen);
+    document.body.classList.toggle('nav-open', shouldOpen);
     if (trigger) trigger.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+    navMenu?.setAttribute('aria-hidden', shouldOpen ? 'false' : 'true');
   };
 
   trigger?.addEventListener('click', () => toggleOpen());
@@ -344,6 +353,8 @@ function createFloatingNav() {
   menuLinks.forEach((link) => {
     link.addEventListener('click', () => toggleOpen(false));
   });
+
+  backdrop.addEventListener('click', () => toggleOpen(false));
 
   document.addEventListener('click', (event) => {
     if (!nav.contains(event.target)) toggleOpen(false);

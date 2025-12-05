@@ -163,6 +163,22 @@ a {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.floating-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 18;
+}
+
+.floating-nav-backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .nav_inner {
   position: relative;
   display: flex;
@@ -281,8 +297,12 @@ a {
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+  transform: translateY(0) scale(1);
   }
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 .nav_big {
@@ -379,6 +399,28 @@ a {
 .accordion-headline.muted {
   color: var(--muted);
   font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .floating-nav {
+    top: 14px;
+    right: 14px;
+  }
+
+  .floating-nav-menu {
+    width: min(420px, calc(100vw - 32px));
+  }
+}
+
+@media (max-width: 540px) {
+  .floating-nav-menu {
+    position: fixed;
+    top: 20px;
+    right: 12px;
+    left: 12px;
+    margin: 0 auto;
+    transform: translateY(-10px) scale(0.98);
+  }
 }
 
 .brand {

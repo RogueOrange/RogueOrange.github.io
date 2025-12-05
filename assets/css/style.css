@@ -343,7 +343,7 @@ a {
 }
 
 body.drawer-open {
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 body.drawer-open .nav-drawer {

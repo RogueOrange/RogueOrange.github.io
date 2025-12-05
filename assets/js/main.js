@@ -43,7 +43,14 @@ function createProjectCard(project) {
     t.textContent = tag;
     tagRow.appendChild(t);
   });
-  card.appendChild(tagRow);
+
+  const cardFoot = document.createElement('div');
+  cardFoot.className = 'card-foot';
+  if (project.image) {
+    cardFoot.classList.add('with-image');
+    cardFoot.style.setProperty('--card-image', `url(${project.image})`);
+  }
+  cardFoot.appendChild(tagRow);
 
   if (project.hasPage) {
     const linkRow = document.createElement('div');
@@ -53,9 +60,10 @@ function createProjectCard(project) {
     link.className = 'text-link';
     link.textContent = 'Open project';
     linkRow.appendChild(link);
-    card.appendChild(linkRow);
+    cardFoot.appendChild(linkRow);
   }
 
+  card.appendChild(cardFoot);
   return card;
 }
 
@@ -101,6 +109,104 @@ function setupProjectExplorer({ filterContainer, searchInput, grid, limit }) {
   let query = '';
 
   const rerender = () => renderProjects({ grid, filterTag: activeTag, query, limit });
+
+  filterContainer.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement) || !target.dataset.tag) return;
+    activeTag = target.dataset.tag;
+    filterContainer.querySelectorAll('.chip').forEach((chip) => chip.classList.remove('active'));
+    target.classList.add('active');
+    rerender();
+  });
+
+  searchInput.addEventListener('input', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    query = target.value;
+    rerender();
+  });
+
+  rerender();
+}
+
+function createNoteCard(note) {
+  const card = document.createElement('article');
+  card.className = 'card soft note-card';
+
+  const meta = document.createElement('p');
+  meta.className = 'pill muted note-meta';
+  meta.textContent = `${note.published} · ${note.readTime}`;
+  card.appendChild(meta);
+
+  const title = document.createElement('h3');
+  title.textContent = note.title;
+  card.appendChild(title);
+
+  const subtitle = document.createElement('p');
+  subtitle.className = 'muted';
+  subtitle.textContent = note.subtitle;
+  card.appendChild(subtitle);
+
+  const desc = document.createElement('p');
+  desc.textContent = note.summary;
+  card.appendChild(desc);
+
+  const tagRow = document.createElement('div');
+  tagRow.className = 'tags';
+  note.tags.forEach((tag) => {
+    const chip = document.createElement('span');
+    chip.className = 'chip';
+    chip.textContent = tag;
+    tagRow.appendChild(chip);
+  });
+  card.appendChild(tagRow);
+
+  return card;
+}
+
+function buildNoteChips(container) {
+  if (!container || !window.notesStore) return;
+  container.innerHTML = '';
+  window.notesStore.getUniqueNoteTags().forEach((tag, index) => {
+    const chip = document.createElement('button');
+    chip.className = `chip${index === 0 ? ' active' : ''}`;
+    chip.dataset.tag = tag;
+    chip.textContent = tag === 'all' ? 'All' : tag.charAt(0).toUpperCase() + tag.slice(1);
+    container.appendChild(chip);
+  });
+}
+
+function filterNotes(filterTag = 'all', query = '', limit) {
+  const normalizedQuery = query.trim().toLowerCase();
+  const source = window.notesStore ? window.notesStore.notes : [];
+  const filtered = source.filter((note) => {
+    const matchesTag = filterTag === 'all' || note.tags.includes(filterTag);
+    const matchesQuery =
+      !normalizedQuery ||
+      note.title.toLowerCase().includes(normalizedQuery) ||
+      note.subtitle.toLowerCase().includes(normalizedQuery) ||
+      note.summary.toLowerCase().includes(normalizedQuery);
+    return matchesTag && matchesQuery;
+  });
+
+  return typeof limit === 'number' ? filtered.slice(0, limit) : filtered;
+}
+
+function renderNotes({ grid, filterTag = 'all', query = '', limit } = {}) {
+  if (!grid) return;
+  grid.innerHTML = '';
+  filterNotes(filterTag, query, limit).forEach((note) => grid.appendChild(createNoteCard(note)));
+}
+
+function setupNotesExplorer({ filterContainer, searchInput, grid, limit }) {
+  if (!filterContainer || !searchInput || !grid) return;
+
+  buildNoteChips(filterContainer);
+
+  let activeTag = 'all';
+  let query = '';
+
+  const rerender = () => renderNotes({ grid, filterTag: activeTag, query, limit });
 
   filterContainer.addEventListener('click', (event) => {
     const target = event.target;
@@ -170,9 +276,26 @@ function initProjectsPage() {
   setupProjectExplorer({ filterContainer: filters, searchInput: search, grid });
 }
 
+function initIndexNotes() {
+  const grid = document.getElementById('notes-grid');
+  if (!grid) return;
+  renderNotes({ grid, limit: 3 });
+}
+
+function initNotesPage() {
+  const page = document.body.dataset.page;
+  if (page !== 'notes') return;
+  const grid = document.getElementById('notes-page-grid');
+  const filters = document.getElementById('notes-page-filters');
+  const search = document.getElementById('notes-page-search');
+  setupNotesExplorer({ filterContainer: filters, searchInput: search, grid });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initIndexProjects();
   initProjectsPage();
+  initIndexNotes();
+  initNotesPage();
   setupSmoothScroll();
   setupNavDrawer();
 });

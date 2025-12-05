@@ -67,21 +67,55 @@
   </style>
 </head>
   <body>
-    <nav class="floating-nav navbar">
-      <div class="floating-nav-inner">
-        <span class="floating-nav-label">Navigate</span>
+    <nav class="floating-nav nav" aria-label="Primary navigation">
+      <div class="nav_inner">
+        <span class="floating-nav-label">Menu</span>
         <button class="navbar_trigger" aria-label="Toggle navigation" aria-expanded="false">
           <span class="navbar_trigger-line is-1"></span>
           <span class="navbar_trigger-line is-2"></span>
-          <span class="navbar_trigger-line is-3"></span>
         </button>
-        <div class="floating-nav-menu" role="menu">
-          <a href="index.html#home">Home</a>
-          <a href="index.html#projects">Projects</a>
-          <a href="projects.html">Projects page</a>
-          <a href="notes.html">Notes</a>
-          <a href="about.html">About</a>
-          <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="nav_big floating-nav-menu" role="menu">
+        <div class="grid_nav">
+          <div class="grid-nav-menu-wrap">
+            <a href="index.html#home" class="mobile-menu-links-wrap">
+              <div class="mobile-menu-text">Home</div>
+              <div class="mobile-menu-nr">0.0</div>
+            </a>
+            <a href="index.html#projects" class="mobile-menu-links-wrap">
+              <div class="mobile-menu-text">Projects</div>
+              <div class="mobile-menu-nr">1.0</div>
+            </a>
+            <a href="projects.html" class="mobile-menu-links-wrap">
+              <div class="mobile-menu-text">Projects page</div>
+              <div class="mobile-menu-nr">2.0</div>
+            </a>
+            <a href="notes.html" class="mobile-menu-links-wrap">
+              <div class="mobile-menu-text">Notes</div>
+              <div class="mobile-menu-nr">3.0</div>
+            </a>
+            <a href="about.html" class="mobile-menu-links-wrap">
+              <div class="mobile-menu-text">About</div>
+              <div class="mobile-menu-nr">4.0</div>
+            </a>
+            <a href="index.html#contact" class="mobile-menu-links-wrap">
+              <div class="mobile-menu-text">Contact</div>
+              <div class="mobile-menu-nr">5.0</div>
+            </a>
+          </div>
+          <div class="mobile-menu-divider-line"></div>
+          <div class="accordion_component">
+            <div class="accordion_top">
+              <div class="accordion-headline">Languages</div>
+              <div class="accordion_icon" aria-hidden="true">▼</div>
+            </div>
+            <div class="accordion_bottom">
+              <div class="language-wrap">
+                <span class="accordion-headline">English</span>
+                <span class="accordion-headline muted">Coming soon: more languages</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>

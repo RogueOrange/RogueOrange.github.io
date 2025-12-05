@@ -140,45 +140,6 @@ function setupNavDrawer() {
   });
 }
 
-function setupHeaderDropdown() {
-  document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-    const trigger = dropdown.querySelector('.drawer-trigger');
-    if (!trigger) return;
-
-    const close = () => {
-      dropdown.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
-    };
-
-    const open = () => {
-      dropdown.classList.add('open');
-      trigger.setAttribute('aria-expanded', 'true');
-    };
-
-    trigger.addEventListener('click', (event) => {
-      event.stopPropagation();
-      if (dropdown.classList.contains('open')) {
-        close();
-      } else {
-        document.querySelectorAll('.nav-dropdown.open').forEach((openDropdown) => {
-          openDropdown.classList.remove('open');
-          const openTrigger = openDropdown.querySelector('.drawer-trigger');
-          openTrigger?.setAttribute('aria-expanded', 'false');
-        });
-        open();
-      }
-    });
-
-    document.addEventListener('click', (event) => {
-      if (!dropdown.contains(event.target)) close();
-    });
-
-    document.addEventListener('keyup', (event) => {
-      if (event.key === 'Escape') close();
-    });
-  });
-}
-
 function setupSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -214,5 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectsPage();
   setupSmoothScroll();
   setupNavDrawer();
-  setupHeaderDropdown();
 });

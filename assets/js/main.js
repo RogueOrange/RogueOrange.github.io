@@ -230,22 +230,43 @@ function setupNotesExplorer({ filterContainer, searchInput, grid, limit }) {
   rerender();
 }
 
-function setupNavDrawer() {
-  const drawer = document.querySelector('.nav-drawer');
-  const toggles = Array.from(document.querySelectorAll('.menu-toggle'));
-  if (!drawer || !toggles.length) return;
+function setupNavbar() {
+  const nav = document.querySelector('.navbar');
+  if (!nav) return;
 
-  const closeButton = drawer.querySelector('.drawer-close');
-  const close = () => document.body.classList.remove('drawer-open');
-  const open = () => document.body.classList.add('drawer-open');
+  const trigger = nav.querySelector('.navbar_trigger');
+  const links = nav.querySelector('.navbar_links');
+  if (!trigger || !links) return;
 
-  toggles.forEach((toggle) => toggle.addEventListener('click', open));
-  closeButton?.addEventListener('click', close);
-  drawer.addEventListener('click', (event) => {
-    if (event.target === drawer) close();
+  const close = () => {
+    nav.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  };
+
+  const toggle = () => {
+    const isOpen = nav.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', String(isOpen));
+  };
+
+  trigger.addEventListener('click', (event) => {
+    event.stopPropagation();
+    toggle();
   });
+
+  links.addEventListener('click', (event) => {
+    if (event.target instanceof HTMLAnchorElement) close();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!nav.contains(event.target)) close();
+  });
+
   document.addEventListener('keyup', (event) => {
     if (event.key === 'Escape') close();
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) close();
   });
 }
 
@@ -300,5 +321,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initIndexNotes();
   initNotesPage();
   setupSmoothScroll();
-  setupNavDrawer();
+  setupNavbar();
 });

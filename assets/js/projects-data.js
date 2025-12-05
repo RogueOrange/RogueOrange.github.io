@@ -8,6 +8,8 @@ const projects = [
       'A ground-up refresh of a 1974 Alfa Romeo GTV 2000 (American Version) with modern drivability, bespoke CAD components, and refined electrics.',
     status: 'In progress',
     hasPage: true,
+    image: 'assets/images/alfa-gtv-2000.svg',
+    imageAlt: 'Stylized Alfa Romeo GTV 2000 coupe illustration',
     spotlight: ['Full chassis teardown and CAD-based reassembly', 'Electrical loom redesign with modern protection', 'Mechanical upgrades tuned for road feel'],
     overview:
       'Breathing new life into a vintage Alfa Romeo GTV 2000 by blending original character with reliable modern systems. From CAD-modeled brackets to a refreshed wiring harness, every touchpoint is mapped for longevity and feel.',

@@ -44,6 +44,7 @@
           <a href="index.html#home">Home</a>
           <a href="index.html#about">About section</a>
           <a href="projects.html">Projects</a>
+          <a href="notes.html">Notes</a>
           <a href="about.html">About page</a>
         </div>
       </div>
@@ -171,42 +172,13 @@
           <div>
             <p class="eyebrow">Notes</p>
             <h2>Behind the scenes</h2>
-            <p class="section-lede">Introduce behind-the-scenes notes, experiments, or drafts you want to share informally.</p>
+            <p class="section-lede">Browse informal shop notes, drafts, and in-progress thinking from the workshop.</p>
           </div>
-          <button class="btn ghost">Download folio</button>
+          <div class="inline-link">
+            <a class="text-link" href="notes.html">Open the notes page →</a>
+          </div>
         </div>
-        <div class="card-grid three">
-          <article class="card soft">
-            <p class="pill muted">Placeholder topic</p>
-            <h3>Designing for momentum</h3>
-            <p>Use this card for a note on how you keep projects moving—rituals, templates, or checklists.</p>
-            <div class="tags">
-              <span class="chip">UI</span>
-              <span class="chip">Systems</span>
-              <span class="chip">Motion</span>
-            </div>
-          </article>
-          <article class="card soft">
-            <p class="pill muted">Data intention</p>
-            <h3>Data with clear intent</h3>
-            <p>Summarise how you align data or analytics work with decisions stakeholders need to make.</p>
-            <div class="tags">
-              <span class="chip">Data</span>
-              <span class="chip">Insights</span>
-              <span class="chip">Ops</span>
-            </div>
-          </article>
-          <article class="card soft">
-            <p class="pill muted">Ops hygiene</p>
-            <h3>Ops that stay invisible</h3>
-            <p>Capture how you keep operational work invisible—monitoring, redundancy, or documentation habits.</p>
-            <div class="tags">
-              <span class="chip">Ops</span>
-              <span class="chip">Reliability</span>
-              <span class="chip">Scale</span>
-            </div>
-          </article>
-        </div>
+        <div class="card-grid three" id="notes-grid"></div>
       </section>
 
       <section id="contact" class="cta">
@@ -253,6 +225,7 @@
       </div>
     </footer>
   </div>
+  <script src="assets/js/notes-data.js"></script>
   <script src="assets/js/projects-data.js"></script>
   <script src="assets/js/main.js"></script>
 </body>

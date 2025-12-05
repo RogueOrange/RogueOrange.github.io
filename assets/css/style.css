@@ -550,6 +550,38 @@ main {
   background: var(--panel-soft);
 }
 
+.card.soft,
+.card.soft .card-foot {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-foot {
+  margin: 14px -6px -6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-foot.with-image {
+  background-image: linear-gradient(180deg, rgba(5, 6, 8, 0.1) 0%, rgba(5, 6, 8, 0.82) 100%), var(--card-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-foot .tags {
+  margin-top: 0;
+}
+
+.card-foot .card-links {
+  margin-top: 4px;
+}
+
 .card:hover {
   transform: translateY(-2px);
   border-color: var(--accent-soft);
@@ -620,6 +652,11 @@ main {
 
 .card-links {
   margin-top: 12px;
+}
+
+.note-card .note-meta {
+  font-size: 12px;
+  letter-spacing: 0.04em;
 }
 
 .projects-hero .panel-grid {

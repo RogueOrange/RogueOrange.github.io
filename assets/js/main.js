@@ -37,6 +37,9 @@ function createProjectCard(project) {
 
   const tagRow = document.createElement('div');
   tagRow.className = 'tags';
+  if (project.slug === 'alfa-gtv-2000-restoration') {
+    tagRow.classList.add('tag-bg-alfa');
+  }
   project.tags.forEach((tag) => {
     const t = document.createElement('span');
     t.className = 'chip';

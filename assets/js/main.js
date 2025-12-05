@@ -230,42 +230,6 @@ function setupNotesExplorer({ filterContainer, searchInput, grid, limit }) {
   rerender();
 }
 
-function setupFloatingNav() {
-  const nav = document.querySelector('.floating-nav');
-  if (!nav) return;
-
-  const trigger = nav.querySelector('.navbar_trigger');
-  const menu = nav.querySelector('.floating-nav-menu');
-  if (!trigger || !menu) return;
-
-  const close = () => {
-    nav.classList.remove('open');
-    trigger.setAttribute('aria-expanded', 'false');
-  };
-
-  const toggle = () => {
-    const isOpen = nav.classList.toggle('open');
-    trigger.setAttribute('aria-expanded', String(isOpen));
-  };
-
-  trigger.addEventListener('click', (event) => {
-    event.stopPropagation();
-    toggle();
-  });
-
-  menu.addEventListener('click', (event) => {
-    if (event.target instanceof HTMLAnchorElement) close();
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!nav.contains(event.target)) close();
-  });
-
-  document.addEventListener('keyup', (event) => {
-    if (event.key === 'Escape') close();
-  });
-}
-
 function setupSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -317,5 +281,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initIndexNotes();
   initNotesPage();
   setupSmoothScroll();
-  setupFloatingNav();
 });

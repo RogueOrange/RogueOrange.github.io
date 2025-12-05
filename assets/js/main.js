@@ -121,6 +121,25 @@ function setupProjectExplorer({ filterContainer, searchInput, grid, limit }) {
   rerender();
 }
 
+function setupNavDrawer() {
+  const drawer = document.querySelector('.nav-drawer');
+  const toggles = Array.from(document.querySelectorAll('.menu-toggle'));
+  if (!drawer || !toggles.length) return;
+
+  const closeButton = drawer.querySelector('.drawer-close');
+  const close = () => document.body.classList.remove('drawer-open');
+  const open = () => document.body.classList.add('drawer-open');
+
+  toggles.forEach((toggle) => toggle.addEventListener('click', open));
+  closeButton?.addEventListener('click', close);
+  drawer.addEventListener('click', (event) => {
+    if (event.target === drawer) close();
+  });
+  document.addEventListener('keyup', (event) => {
+    if (event.key === 'Escape') close();
+  });
+}
+
 function setupSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
@@ -155,4 +174,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initIndexProjects();
   initProjectsPage();
   setupSmoothScroll();
+  setupNavDrawer();
 });

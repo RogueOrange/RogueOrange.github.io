@@ -916,15 +916,6 @@ main {
 }
 
 @media (max-width: 900px) {
-  .floating-nav {
-    top: 12px;
-    right: 12px;
-  }
-
-  .floating-nav-inner {
-    padding: 8px 10px;
-  }
-
   .milestone-rail {
     display: none;
   }

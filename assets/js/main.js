@@ -1,4 +1,4 @@
-const words = ['engineering', 'CAD','CAM','constuction', 'designing', 'building', 'exploring','learning'];
+const words = ['engineering', 'CAD','CAM','construction', 'designing', 'building', 'exploring','learning'];
 let currentWord = 0;
 
 function rotateWords() {
@@ -288,7 +288,6 @@ function createFloatingNav() {
     { label: 'Projects', href: 'projects.html' },
     { label: 'Notes', href: 'notes.html' },
     { label: 'Contact', href: 'index.html#contact' },
-    { label: 'Examples', href: 'examples-formatting.html' },
   ];
 
   const nav = document.createElement('nav');
@@ -314,17 +313,6 @@ function createFloatingNav() {
     <div class="floating-nav-menu" role="menu" aria-hidden="true">
       <div class="floating-nav-label">Navigate</div>
       <div class="grid-nav-menu-wrap">${menuMarkup}</div>
-      <div class="mobile-menu-divider-line"></div>
-      <div class="accordion_component">
-        <div class="accordion_top">
-          <span class="accordion-headline muted">Quick jump</span>
-          <span class="accordion_icon" aria-hidden="true">↘</span>
-        </div>
-        <div class="accordion_bottom language-wrap">
-          <span class="accordion-headline">Smooth scroll enabled</span>
-          <span class="accordion-headline muted">Links glide to their section when available.</span>
-        </div>
-      </div>
     </div>
   `;
 
